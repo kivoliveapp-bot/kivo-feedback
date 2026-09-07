@@ -441,7 +441,7 @@
             id="successMessage"
             class="message success">
 
-        تم إرسال ملاحظتك بنجاح
+        feedback has been successfully submitted.
 
     </div>
 
@@ -450,7 +450,7 @@
             id="errorMessage"
             class="message error">
 
-        حدث خطأ، حاول مرة أخرى.
+        An error occurred, please try again.
 
     </div>
 
@@ -623,7 +623,7 @@
    VARIABLES
 ===================================================== */
 
-let selectedType = "اقتراح";
+let selectedType = "اsuggestion";
 
 let selectedRating = 0;
 
@@ -734,28 +734,6 @@ function setRating(rating) {
 
         }
     );
-
-
-    const texts = {
-
-        1: "سيئة جداً",
-
-        2: "سيئة",
-
-        3: "جيدة",
-
-        4: "جيدة جداً",
-
-        5: "ممتازة ❤️"
-
-    };
-
-
-    document
-        .getElementById("ratingText")
-        .innerText =
-        texts[rating];
-
 }
 
 
@@ -779,7 +757,7 @@ function sendFeedback() {
     if (!text) {
 
         showError(
-            "اكتب ملاحظتك أولاً."
+            "Write your note first."
         );
 
         return;
@@ -790,7 +768,7 @@ function sendFeedback() {
     if (text.length < 5) {
 
         showError(
-            "اكتب ملاحظة أطول قليلاً."
+            "Write a slightly longer note."
         );
 
         return;
@@ -803,7 +781,7 @@ function sendFeedback() {
     if (selectedRating === 0) {
 
         showError(
-            "اختر تقييمك للتطبيق."
+            "Choose your rating for the app."
         );
 
         return;
@@ -826,7 +804,7 @@ function sendFeedback() {
 
         <span class="loading"></span>
 
-        جاري الإرسال...
+        Sending...
 
     `;
 
@@ -925,8 +903,7 @@ function sendFeedback() {
             );
 
             showError(
-                "تعذر إرسال الملاحظة. تحقق من الإنترنت."
-            );
+"The message could not be sent. Check your internet connection."            );
 
         }
 
@@ -939,7 +916,7 @@ function sendFeedback() {
                 false;
 
             button.innerText =
-                "إرسال الملاحظة";
+                "Send feedback";
 
         }
 
